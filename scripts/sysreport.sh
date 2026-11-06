@@ -8,7 +8,9 @@ echo "===== System Health Report ====="
 echo "Host:      $(hostname)"
 echo "Date:      $(date)"
 echo "Uptime:    $(uptime -p)"
+echo "Kernel:    $(uname -r)"
 echo
+
 
 # --- CPU: core count and load averages ---
 # Load above the core count means the CPU is overloaded
