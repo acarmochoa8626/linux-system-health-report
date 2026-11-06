@@ -1,17 +1,37 @@
+#!/usr/bin/env bash
+# sysreport.sh - Print a basic system health report
+# Usage: ./scripts/sysreport.sh
+# Part of Project 1 (DevOps lab)
 
-hostname
-date
-uptime -p
-nproc
-cut -d ' ' -f 1-3 /proc/loadavg
+# --- Header: who, when, how long running ---
+echo "===== System Health Report ====="
+echo "Host:      $(hostname)"
+echo "Date:      $(date)"
+echo "Uptime:    $(uptime -p)"
+echo
+
+# --- CPU: core count and load averages ---
+# Load above the core count means the CPU is overloaded
+echo "--- CPU ---"
+echo "Cores:     $(nproc)"
+echo "Load avg (1, 5, 15 min): $(cut -d ' ' -f 1-3 /proc/loadavg)"
+echo
+
+# --- Memory: check the 'available' column ---
+echo "--- Memory ---"
 free -h
+echo
+
+# --- Disk: root filesystem usage ---
+echo "--- Disk (root filesystem) ---"
 df -h /
 
 # --- Users: who is logged in right now ---
 echo
 echo "--- Users ---"
 who
-# Maintained as part of Project 1
 
-./scripts/sysreport.sh
-
+# --- Processes: top 5 by memory use ---
+echo
+echo "--- Top 5 Processes by Memory ---"
+ps -eo pid,user,%cpu,%mem,comm --sort=-%mem | head -n 6
