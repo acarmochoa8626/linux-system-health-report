@@ -12,3 +12,6 @@ echo
 echo "--- Users ---"
 who
 # Maintained as part of Project 1
+
+./scripts/sysreport.sh
+
