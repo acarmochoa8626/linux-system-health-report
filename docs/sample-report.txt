@@ -1,0 +1,14 @@
+fedora
+Wed Nov  4 10:04:54 PM PST 2026
+up 8 hours, 49 minutes
+16
+0.61 0.52 0.46
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       4.0Gi       7.3Gi       681Mi       4.5Gi        11Gi
+Swap:          8.0Gi          0B       8.0Gi
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p6  280G   30G  250G  11% /
+
+--- Users ---
+ajco     seat0        2026-11-04 13:22
+ajco     tty2         2026-11-04 13:22
