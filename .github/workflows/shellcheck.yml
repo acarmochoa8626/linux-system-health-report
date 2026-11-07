@@ -1,0 +1,28 @@
+# shellcheck.yml - CI workflow: lint all bash scripts on every push and PR
+name: ShellCheck
+
+# Events that start this workflow
+on:
+  push:            # any push, to any branch
+  pull_request:    # any pull request
+
+jobs:
+  shellcheck:                  # job ID (your choice of name)
+    runs-on: ubuntu-latest     # runner: a fresh Ubuntu Linux VM
+
+    steps:
+      # 1. Download the repo's files onto the runner
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      # 2. Install ShellCheck explicitly instead of assuming it's there
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+
+      # 3. Record the version in the log (useful when debugging)
+      - name: Show ShellCheck version
+        run: shellcheck --version
+
+      # 4. The actual test: a non-zero exit code fails the job
+      - name: Run ShellCheck
+        run: shellcheck scripts/*.sh
