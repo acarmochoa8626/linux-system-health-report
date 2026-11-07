@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail # strict mode;exit on error , unset vars, or pipe failure
 # sysreport.sh - Print a basic system health report
 # Usage: ./scripts/sysreport.sh
 # Part of Project 1 (DevOps lab)
