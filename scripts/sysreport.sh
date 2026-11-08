@@ -38,3 +38,4 @@ who
 echo
 echo "--- Top 5 Processes by Memory ---"
 ps -eo pid,user,%cpu,%mem,comm --sort=-%mem | head -n 6
+files=`ls`
